@@ -23,7 +23,6 @@ Dataset: Our dataset, titled “SpaceNet: A Comprehensive Astronomical Dataset�
 
 How to obtain: This dataset is extremely large and cannot be manually uploaded to our IDEs, so we will be storing images by designing SQL databases using BLOB (Binary Large Object) data types that will be split into 8 different tables (representing each class). We will then clean and prepare the data by handling missing or corrupted images. 
 
-
 Created/simulated: This dataset was simulated using real astronomical images. The directory is hierarchically structured, providing high-resolution (HR) images that have undergone a series of augmentations and synthetic sample generation using advanced techniques using the FLARE project’s novel double stage augmentation strategy.
 
 Models/Implementation: After storing the SpaceNet images in SQL databases as BLOBs separated into eight celestial classes, the next step will involve retrieving and preprocessing the data for model training. Each image will be queried, decoded into a numerical array, resized to a uniform 128x128 dimension, and then normalized so that pixel values range between 0 and 1. The labels representing each of the celestial body types will be numerically encoded, and the dataset will be split into training and testing. 
@@ -37,3 +36,7 @@ The model will be trained with the Adam optimizer, which is an adaptive form of 
 Evaluation: Matplotlib will be used extensively to visualize the model’s performance over time, providing clear insight into how the CNN learns during training. By plotting metrics such as training and validation loss, accuracy, and convergence curves, it will truly help identify whether the model is overfitting, underfitting, or steadily getting better.
 
 Additional Features: We may also incorporate computer vision to enhance user experience.
+
+CITATIONS:
+In 2024, Mohammed Talha Alam, Raza Imam, Mohsen Guizani, and Fakhri Karray released a paper titled FLARE up your data: Diffusion-based Augmentation Method in Astronomical Imaging. It was published on arXiv in the computer vision category with the identifier 2405.13267.} 
+Link to Dataset: https://www.kaggle.com/datasets/razaimam45/spacenet-an-optimally-distributed-astronomy-data 
