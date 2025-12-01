@@ -1,12 +1,12 @@
 import os
 import random
 import zipfile
+import glob
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 dataset_slug = "razaimam45/spacenet-an-optimally-distributed-astronomy-data"
-zip_path = "data/raw.zip"      # temporary zip
-sampled_path = "data/sampled"  # final folder
-num_samples_per_class = 100
+sampled_path = "data/sampled"
+num_samples_per_class = 10
 
 # Authenticate
 api = KaggleApi()
@@ -15,10 +15,16 @@ api.authenticate()
 os.makedirs("data", exist_ok=True)
 os.makedirs(sampled_path, exist_ok=True)
 
-# Download the full dataset zip (compressed, much smaller than 57GB)
+# Download dataset zip (compressed)
 print("Downloading dataset zip (compressed)...")
 api.dataset_download_files(dataset_slug, path="data", unzip=False, quiet=False)
 print("Download complete!")
+
+# Find the downloaded zip file
+zip_files = glob.glob("data/*.zip")
+if not zip_files:
+    raise FileNotFoundError("No zip file found in data/")
+zip_path = zip_files[0]
 
 # Extract only a sample of images
 with zipfile.ZipFile(zip_path, 'r') as zip_ref:
@@ -32,9 +38,7 @@ with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         os.makedirs(cls_dir, exist_ok=True)
 
         for f in sampled_files:
-            # Extract only the sampled images
             zip_ref.extract(f, sampled_path)
-            # Move them to the class folder (flatten)
             os.rename(os.path.join(sampled_path, f), os.path.join(cls_dir, os.path.basename(f)))
 
 print(f"Sampled {num_samples_per_class} images per class in '{sampled_path}'")
