@@ -1,3 +1,181 @@
+.topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: linear-gradient(90deg,#0b3d91 0%, #0f6bd3 100%);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+.topbar-inner{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.brand{
+    font-family: "Schoolbell", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+.topnav a{
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+    margin-left: 14px;
+    font-weight: 500;
+}
+
+.topnav a:hover{ opacity: 0.9; text-decoration: underline; }
+
+.topnav .cta{
+    background: #fff;
+    color: #0b3d91;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* avoid content hidden under fixed header */
+body{
+    padding-top: 80px; /* adjust if you change topbar height */
+}
+
+/* HERO / BACKGROUND WALLPAPER */
+.hero{
+    position: relative;
+    min-height: calc(70vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    padding: 48px 16px;
+    box-sizing: border-box;
+
+    /* layered background: subtle gradient + star field (generated) */
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,0.04) 0%, transparent 20%),
+      linear-gradient(180deg, #071226 0%, #081733 60%, #041128 100%);
+}
+
+/* keep content readable above background */
+.hero-inner{
+    position: relative;
+    z-index: 5;
+    max-width: 960px;
+}
+
+/* CTA button */
+.hero .button{
+    display: inline-block;
+    margin-top: 18px;
+    background: linear-gradient(90deg,#ffd86b,#ff7eb3);
+    color:#081226;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* STARS: many tiny dots using repeating radial gradient */
+.hero .stars{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.95) 0.7px, rgba(255,255,255,0.0) 1px);
+    background-size: 12px 12px;
+    opacity: 0.9;
+    filter: contrast(1.1) saturate(0.9) blur(0.2px);
+    transform: translateZ(0);
+}
+
+/* DOODLE PLANETS (simple CSS circles with gradients to resemble planets) */
+.doodle{
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* planet 1 - top-left */
+.planet-1{
+    width: 130px;
+    height: 130px;
+    left: -40px;
+    top: -30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffd78a, #ff9eb8 40%, #8b4cd6 100%);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45), inset -8px -6px 18px rgba(0,0,0,0.12);
+    transform: rotate(12deg);
+    opacity: 0.95;
+}
+
+/* planet 2 - bottom-right, smaller */
+.planet-2{
+    width: 80px;
+    height: 80px;
+    right: -30px;
+    bottom: 10%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #b3e6ff, #3aa0ff 60%, #2a5aa8 100%);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45), inset -4px -3px 10px rgba(255,255,255,0.06);
+    opacity: 0.95;
+}
+
+/* comet - diagonal streak */
+.comet{
+    width: 220px;
+    height: 4px;
+    right: -10%;
+    top: 25%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.95), rgba(255,255,255,0.0));
+    transform: rotate(-18deg) translateZ(0);
+    filter: blur(1px);
+    opacity: 0.9;
+    border-radius: 4px;
+    box-shadow: 0 0 18px rgba(255,255,255,0.18);
+}
+
+/* small responsive tweaks - reduce doodle sizes on small screens */
+@media (max-width: 700px){
+    .planet-1{ width: 90px; height: 90px; left: -30px; top: -20px; }
+    .planet-2{ width: 56px; height: 56px; right: -20px; bottom: 8%; }
+    .comet{ width: 140px; top: 18%; right: -25%; }
+    .hero{ min-height: calc(55vh); padding: 36px 12px; }
+    body{ padding-top: 74px; } /* keep content visible under header */
+}
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+}
+.brand-logo{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+}
+.brand-text{
+    font-family: "Schoolbell", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    line-height: 1;
+}
 h1{
     font-size: 36px;
     font-family: Schoolbell, cursive;
