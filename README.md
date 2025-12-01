@@ -2,7 +2,7 @@
 OUR PROJECT 
 
 <p>
-  <img src="./app/static/images/logo.png" alt="Astraeus logo" width="64" />
+  <img src="./app/static/images/logo.png" alt="Astraeus logo" width="200" />
 </p>
 
 Problem: The problem that we aim to solve with Astraeus is the ability to identify different celestial beings in the night sky from camera footage to help major space companies with research and identification.  
