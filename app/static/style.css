@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: 64px;
-    background: linear-gradient(90deg,#0b3d91 0%, #0f6bd3 100%);
+    background: linear-gradient(90deg,#0b3d91 0%, #0452AC 100%);
     color: #fff;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     z-index: 1000;
@@ -32,6 +32,7 @@
     text-decoration: none;
     margin-left: 14px;
     font-weight: 500;
+    font-family: Capriola, sans-serif;
 }
 
 .topnav a:hover{ opacity: 0.9; text-decoration: underline; }
@@ -86,6 +87,7 @@ body{
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    font-family: Capriola, sans-serif;
 }
 
 /* STARS: many tiny dots using repeating radial gradient */
@@ -177,6 +179,50 @@ body{
     line-height: 1;
 }
 
+.pform{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+form input{
+    font-family: Capriola, sans-serif;
+    padding-bottom: 0.8vw;
+    max-width: 18vw;
+}
+form input::file-selector-button{
+    display:inline-block;
+    font-family: Capriola, sans-serif;
+    color:#081226;
+    padding-top: 0.5vw;
+    background: linear-gradient(90deg,#0b3d91 0%, #0452AC 100%);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    margin-left: 1vw;
+}
+
+form button{
+    font-family: Capriola, sans-serif;
+    color:#081226;
+    padding-top: 0.5vw;
+    background: linear-gradient(90deg,#0b3d91 0%, #0452AC 100%);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+form button:hover{
+    color:#0b3d91;
+    background: #FFF;
+}
+
+
+
 h1{
     font-size: 10vw;
     font-family: Schoolbell, cursive;
@@ -188,6 +234,13 @@ h1{
 h2{
     font-size: 1.5vw;
     padding-top: 0.5vw;
+    margin: 0 0 0 0;
+    font-family: Capriola, sans-serif;
+}
+
+h3{
+    font-size: 1.5vw;
+    padding-bottom: 1vw;
     margin: 0 0 0 0;
     font-family: Capriola, sans-serif;
 }
