@@ -4,11 +4,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def front():
-    return render_template('front.html')
-
-@app.route('/home')
-def home():
     return render_template('home.html')
+
+@app.route('/start')
+def home():
+    return render_template('start.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():

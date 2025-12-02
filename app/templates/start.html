@@ -1,12 +1,11 @@
 <html>
     <head>
-        <title>Front Page</title>
-        <link rel="stylesheet" href="/static/style.css">
+        <title>Home Page</title>
+        <link rel = "stylesheet" href = "/static/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Capriola&display=swap">
     </head>
     <body>
-         <!-- Top horizontal bar -->
         <header class="topbar">
             <div class="topbar-inner">
                 <div class="brand">
@@ -16,29 +15,24 @@
                     </div>
                 </div>
                  <nav class="topnav">
-                     <a href="/">Home</a>
-                     <!-- <a href="/about">About</a> FOR LATER --> 
-                     <a href="/start" class="cta">Start</a>
+                     <a href="/" class="cta">Home</a>
+                     <a href="/start">Start</a>
                  </nav>
              </div>
-         </header>
-        
-        <!-- hero / wallpaper with doodles -->
-        <section class="hero">
-            <div class="hero-inner">
-                <h1>Astraeus</h1>
-                <h2>Identify Objects In The Sky</h2>
-                <br>
-                <a class="button" href="/start">Get started</a>
-            </div>
+        </header>
 
-            <!-- purely decorative CSS doodles (no external images required) -->
+        <section class="hero">
+            <div class="pform">
+                <h3>submit your photo!</h3>
+                <form id="predictForm">
+                    <input type="file" id="uploadedImage" name="uploadedImage" accept="image/*" required>
+                    <br>
+                    <button type="submit">upload</button>
+                </form>
+            </div>
             <div class="doodle planet planet-1" aria-hidden="true"></div>
             <div class="doodle planet planet-2" aria-hidden="true"></div>
-            <div class="doodle comet" aria-hidden="true"></div>
-            <div class="stars" aria-hidden="true"></div>
-        </section>
-        
+            <div class="doodle comet" aria-hidden="true"></div> 
+        </section> 
     </body>
 </html>
-

@@ -1,6 +1,10 @@
 # Astraeus
 OUR PROJECT 
 
+<p>
+  <img src="./app/static/images/logo.png" alt="Astraeus logo" width="200" />
+</p>
+
 Problem: The problem that we aim to solve with Astraeus is the ability to identify different celestial beings in the night sky from camera footage to help major space companies with research and identification.  
 
 This technology can be used to help map how much the universe is expanding!
@@ -21,11 +25,11 @@ PLAN
 
 Dataset: Our dataset, titled “SpaceNet: A Comprehensive Astronomical Dataset” encompasses a wide variety of celestial bodies, offering approximately 12,900 samples. The dataset is split into 8 classes  including planets, galaxies, asteroids, nebulae, comets, black holes, stars, and constellations that we can use to train our machine learning model. This split will help ensure that our dataset is not overwhelmingly large, and also ensure proper fitting. Additionally, to supplement the original dataset, a second dataset, titled “Digital Modulation Constellation Images” will be joined.
 
-How to obtain: This dataset is extremely large and cannot be manually uploaded to our IDEs, so we will be storing images by designing SQL databases using BLOB (Binary Large Object) data types that will be split into 8 different tables (representing each class). We will then clean and prepare the data by handling missing or corrupted images. 
+How to obtain: This dataset is extremely large, so we have temporarily selected random images and uploaded them in a data folder.
 
 Created/simulated: This dataset was simulated using real astronomical images. The directory is hierarchically structured, providing high-resolution (HR) images that have undergone a series of augmentations and synthetic sample generation using advanced techniques using the FLARE project’s novel double stage augmentation strategy.
 
-Models/Implementation: After storing the SpaceNet images in SQL databases as BLOBs separated into eight celestial classes, the next step will involve retrieving and preprocessing the data for model training. Each image will be queried, decoded into a numerical array, resized to a uniform 128x128 dimension, and then normalized so that pixel values range between 0 and 1. The labels representing each of the celestial body types will be numerically encoded, and the dataset will be split into training and testing. 
+Models/Implementation: After storing the images, each image will be queried, decoded into a numerical array, resized to a uniform 128x128 dimension, and then normalized so that pixel values range between 0 and 1. The labels representing each of the celestial body types will be numerically encoded, and the dataset will be split into training and testing. 
 
 A Convolutional Neural Network (CNN) will then be designed for multiclass classification. Since the dataset includes eight categories, a softmax activation function will be used in the final layer to produce a probability distribution over all classes, allowing the model to predict which celestial type is most likely. The CNN will include many convolutional and pooling layers to extract spatial features, and will then be followed by fully connected dense layers that learn complex patterns. We will also be using the class concept of regularization to prevent overfitting. 
 
