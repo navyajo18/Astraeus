@@ -1,0 +1,16 @@
+# Core
+numpy>=1.23.5,<2.0.0
+tensorflow==2.16.2
+pillow>=9.4.0
+scikit-learn>=1.2.2
+flask>=2.2.5
+
+# Utilities / optional
+matplotlib>=3.7.1
+tqdm>=4.65.0
+
+# Optional (macOS Apple Silicon): use tensorflow-macos + tensorflow-metal instead of tensorflow
+# tensorflow-macos
+# tensorflow-metal
+
+# Optional for converting to TF.js (only if you plan to convert):
