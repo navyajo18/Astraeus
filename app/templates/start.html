@@ -23,16 +23,68 @@
 
         <section class="hero">
             <div class="pform">
-                <h3>submit your photo!</h3>
-                <form id="predictForm">
-                    <input type="file" id="uploadedImage" name="uploadedImage" accept="image/*" required>
-                    <br>
-                    <button type="submit">upload</button>
-                </form>
+                <h3 id="result">submit your photo!</h3>
+            <form id="predictForm">
+                <label for="uploadedImage" id="dropzone" class="dropzone">
+                    <input type="file" id="uploadedImage" name="uploadedImage" accept="image/*" required hidden>
+                    <div id="imageView">
+                        <img src="/static/images/temp.png">
+                    </div>
+                </label> 
+                <button type="submit">upload</button>
+            </form> 
+            <!--<div id="result"></div>-->
             </div>
             <div class="doodle planet planet-1" aria-hidden="true"></div>
             <div class="doodle planet planet-2" aria-hidden="true"></div>
             <div class="doodle comet" aria-hidden="true"></div> 
-        </section> 
+        </section>
+        
+        
+        
+        
+        <script>
+            const dropZone = document.getElementById('dropzone');
+            const inputFile = document.getElementById('uploadedImage');
+            const iView = document.getElementById('imageView');
+            const form = document.getElementById('predictForm');
+            const result = document.getElementById('result');
+
+            inputFile.addEventListener("change", uploadImage);
+
+            function uploadImage(){
+                let imgLink = URL.createObjectURL(inputFile.files[0]);
+                iView.style.backgroundImage = `url(${imgLink})`;
+                iView.textContent="";
+                iView.style.border=0;
+            }
+
+            dropZone.addEventListener('dragover', function(event) {
+                event.preventDefault();
+            })
+
+            dropZone.addEventListener('drop', function(event) {
+                event.preventDefault();
+                let imgLink = URL.createObjectURL(event.dataTransfer.files[0]);
+                iView.style.backgroundImage = `url(${imgLink})`;
+                iView.textContent="";
+                iView.style.border=0;
+            });
+
+            form.addEventListener("submit", async function(event){
+                event.preventDefault();
+                const formData = new FormData(form);
+                const response = await fetch("/predict",{method:"POST", body:formData});
+                const data = await response.json();
+                if(data.error)
+                    result.textContent = data.error;
+                else
+                    result.textContent = 'class: '+data.class+" confidence: "+data.confidence;
+            });
+
+
+
+
+        </script>
     </body>
 </html>

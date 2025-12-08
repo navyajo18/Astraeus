@@ -3,7 +3,7 @@ import os
 import json
 import numpy as np
 from PIL import Image
-import tensorflow as tf
+#import tensorflow as tf
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -19,7 +19,8 @@ if os.path.exists(LABEL_PATH):
     with open(LABEL_PATH, 'r') as f:
         LABELS = json.load(f).get('classes', [])
 if os.path.exists(MODEL_PATH):
-    TF_MODEL = tf.keras.models.load_model(MODEL_PATH)
+    #TF_MODEL = tf.keras.models.load_model(MODEL_PATH)
+    print("hi")
 else:
     print("Warning: TF model not found at", MODEL_PATH)
 
