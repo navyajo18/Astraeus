@@ -3,7 +3,7 @@ import os
 import json
 import numpy as np
 from PIL import Image
-#import tensorflow as tf
+import tensorflow as tf
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -19,8 +19,7 @@ if os.path.exists(LABEL_PATH):
     with open(LABEL_PATH, 'r') as f:
         LABELS = json.load(f).get('classes', [])
 if os.path.exists(MODEL_PATH):
-    #TF_MODEL = tf.keras.models.load_model(MODEL_PATH)
-    print("hi")
+    TF_MODEL = tf.keras.models.load_model(MODEL_PATH)
 else:
     print("Warning: TF model not found at", MODEL_PATH)
 
@@ -46,6 +45,8 @@ def predict():
         x = np.expand_dims(arr, 0)
         preds = TF_MODEL.predict(x)[0]
         idx = int(np.argmax(preds))
+        if float(preds[idx]) < 0.8:
+            return jsonify({'error':'Photo Does Not Match One of the Classifications'}),  500
         return jsonify({'class': LABELS[idx] if LABELS else str(idx), 'confidence': float(preds[idx])})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
